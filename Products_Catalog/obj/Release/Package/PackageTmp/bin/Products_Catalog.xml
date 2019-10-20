@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Products_Catalog</name>
+    </assembly>
+    <members>
+        <member name="M:Products_Catalog.Controllers.api.ExportProductsListController.ExportProductsList(System.String)">
+            <summary>
+            Export list of products to Excel. If parameter ID is empty - Full list. If parameter ID contains word - filtered by name list.
+            Returns Excel file URL.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Products_Catalog.Controllers.api.FilteredListController.GetProductsList(System.String)">
+            <summary>
+            Returns filtered by part of name list of products.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Products_Catalog.Controllers.api.ValuesController.GetProducts">
+            <summary>
+            Returns list of products.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Products_Catalog.Controllers.api.ValuesController.GetProduct(System.Int32)">
+            <summary>
+            Returns one product by its ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Products_Catalog.Controllers.api.ValuesController.CreateProduct(Products_Catalog.Models.Product)">
+            <summary>
+            Creats product (with photo or without photo). Needs PRODUCT as parameter.
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Products_Catalog.Controllers.api.ValuesController.DeleteProduct(System.Int32)">
+            <summary>
+            Deletes product by its ID. Void. Nothing returns.
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Products_Catalog.Controllers.api.ValuesController.EditProduct(System.Int32,Products_Catalog.Models.Product)">
+            <summary>
+            Updates product information. Needs product ID and PRODUCT as parameters. Void. Nothing returns.
+            </summary>
+            <param name="id"></param>
+            <param name="product"></param>
+        </member>
+    </members>
+</doc>

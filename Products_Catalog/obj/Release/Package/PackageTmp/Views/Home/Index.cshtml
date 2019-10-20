@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Products catalog";
+}
+
+    <div class="container">
+        <h3>PRODUCTS CATALOG</h3>
+        <div class="row">
+            <div class="col-8 ">
+                <table style="width:310px;">
+                    <tr>
+                        <td style="width:290px;">
+                            <input id="filterInput" class="form-control" style="width:100%;" placeholder="Input part of product name for filter list" onchange="GetProductsListFiltered();" />
+                        </td>
+                        <td>
+                            <a href="javascript:void();" onclick="ClearFilter();" title="Clear filter">x</a>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <a href="javascript:void();" class="btn-sm btn-secondary" onclick="ExportToExcel();">Export to Excel</a>
+            </div>
+            <div class="col-4">
+                <a href="javascript:void();" class="btn-sm btn-info" onclick="ShowNewProductForm();">New product</a>
+            </div>
+        </div>
+        <a href="" id="downloadA" style="display:none;">download</a>
+        <br />
+       
+        <div class="row">
+
+            <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 products_list_height">
+                <div id="tableBlock" class="div100"></div>
+            </div>
+
+            <div class="col-sm-12  col-md-4 col-lg-4 col-xl-4">
+                <div id="createBlock" class="div100">
+
+                    <p><b>New product</b></p>
+
+                    <table style="width:100%;">
+                        <tr><td style="width:25%;"><label>Code: </label></td><td><input type="text" id="addCode" required class="form-control"/></td></tr>
+                        <tr><td style="width:25%;"><label>Name: </label></td><td><input type="text" id="addName" required class="form-control" /></td></tr>
+                        <tr><td style="width:25%;"><label>Price: </label></td><td><input type="number" step="0.01" id="addPrice" required class="form-control" /></td></tr>
+                        <tr><td style="width:25%;"><label>Photo: </label></td><td><input type="file" id="addPhoto" class="form-control" /></td></tr>
+                    </table>
+
+                    <a href="javascript:void();" id="addProduct" onclick="AddProduct();" class="btn-sm btn-primary">Save</a>
+
+                </div>
+
+                <div id="editBlock" class="div100" style="display:none;">
+                    <p><b>Edit product</b></p>
+
+                    <input type="hidden" value="" id="editId" />
+                    <input type="hidden" value="" id="editHiddenCode" />
+                    <table style="width:100%;">
+                        <tr><td style="width:25%;"><label>Code: </label></td><td><input type="text" id="editCode" required class="form-control" /></td></tr>
+                        <tr><td style="width:25%;"><label>Name: </label></td><td><input type="text" id="editName" required class="form-control" /></td></tr>
+                        <tr><td style="width:25%;"><label>Price: </label></td><td><input type="number" step="0.01" id="editPrice" required class="form-control" /></td></tr>
+                        <tr id="editedPhotoInput" style="display:none;"><td style="width:25%;"><label>Photo: </label></td><td><input type="file" id="editPhoto" class="form-control" /></td></tr>
+                    </table>
+                    <img src="" style="width:100%;" id="editImage" />
+                    <a href="javascript:void();" class="btn-sm btn-danger" onclick="DeletePicture();" id="deletePictureButton" style="display:none;">Delete picture</a>
+                    <a href="javascript:void();" class="btn-sm btn-primary" onclick="SaveEdited();">Save edited</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="resultdiv" style="display:none;"></div>
+    </div>
+
+<script type="text/javascript" src="~/Scripts/appScripts/catalog.js"></script>
+<script type="text/javascript">
+     window.MainUrl = "@Url.Content("~/")";
+    var murl = window.MainUrl;
+
+    $(document).ready(function () {
+ 
+        GetAllItems();
+ 
+      
+    });
+
+    
+</script>
